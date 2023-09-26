@@ -4,7 +4,7 @@ import discord
 import asyncio
 
 # Replace with your Discord webhook URL
-DISCORD_WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1156275318752018502/yGRiBuw1brhH1QDSQWe6P45pPNPY0-3xqpYg9u8VI5D1EhqDk6c7QHRM1Q63sOoOlP6z"
 
 # The URL of the website you want to monitor
 WEBSITE_URL = "https://www.pokeguardian.com/sets/upcoming-sets"
