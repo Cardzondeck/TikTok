@@ -13,7 +13,7 @@ WEBSITE_URL = "https://www.pokeguardian.com/sets/upcoming-sets"
 client = discord.Webhook.from_url(DISCORD_WEBHOOK_URL, adapter=discord.RequestsWebhookAdapter())
 
 # Store the initial content of the website
-initial_content = ""
+initial_content = "https://www.pokeguardian.com/sets/upcoming-sets"
 
 # Function to fetch the website content
 async def fetch_website_content():
@@ -24,23 +24,23 @@ async def fetch_website_content():
             response = requests.get(WEBSITE_URL)
             response.raise_for_status()
 
-            # Parse the HTML content of the page
-            soup = BeautifulSoup(response.text, "html.parser")
+ # Parse the HTML content of the page
+ soup = BeautifulSoup(response.text, "html.parser")
 
-            # Extract the main content of the page that you want to monitor
-            content = str(soup.find("div", class_="content"))
+# Extract the main content of the page that you want to monitor
+content = str(soup.find("div", class_="jw-element-imagetext-text"))
 
-            # Check if the content has changed
-            if content != initial_content:
+# Check if the content has changed
+ if content != initial_content:
                 # Content has changed, send a notification to Discord
-                await client.send(content="Website content has changed:\n" + WEBSITE_URL)
+                await client.send(content="New Update to site:\n" + WEBSITE_URL)
                 initial_content = content
 
-        except Exception as e:
+ except Exception as e:
             print("Error:", str(e))
 
-        # Wait for a specified interval before checking again (e.g., 1 hour)
-        await asyncio.sleep(3600)
+  # Wait for a specified interval before checking again (e.g., 1 hour)
+ await asyncio.sleep(3600)
 
 # Run the monitoring function
 if __name__ == "__main__":
