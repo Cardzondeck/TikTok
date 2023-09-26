@@ -13,7 +13,7 @@ WEBSITE_URL = "https://www.pokeguardian.com/sets/upcoming-sets"
 client = discord.Webhook.from_url(DISCORD_WEBHOOK_URL, adapter=discord.RequestsWebhookAdapter())
 
 # Store the initial content of the website
-initial_content = ""
+initial_content = "https://www.pokeguardian.com/sets/upcoming-sets"
 
 # Function to fetch the website content
 async def fetch_website_content():
