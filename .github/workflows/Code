@@ -28,12 +28,12 @@ async def fetch_website_content():
             soup = BeautifulSoup(response.text, "html.parser")
 
             # Extract the main content of the page that you want to monitor
-            content = str(soup.find("div", class_="content"))
+            content = str(soup.find("div", class_="jw-element-imagetext-text"))
 
             # Check if the content has changed
             if content != initial_content:
                 # Content has changed, send a notification to Discord
-                await client.send(content="Website content has changed:\n" + WEBSITE_URL)
+                await client.send(content="New Update to site:\n" + WEBSITE_URL)
                 initial_content = content
 
         except Exception as e:
